@@ -1,0 +1,37 @@
+{
+	"name": "@cyph/starter-project",
+	"version": "0.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/cyph/starter-project.git"
+	},
+	"author": "Cyph, Inc. <starter-project@cyph.com> (https://github.com/cyph)",
+	"license": "Cyph-RSL",
+	"bugs": {
+		"url": "https://github.com/cyph/starter-project/issues"
+	},
+	"prettier": {
+		"arrowParens": "avoid",
+		"bracketSpacing": false,
+		"endOfLine": "lf",
+		"htmlWhitespaceSensitivity": "css",
+		"jsxBracketSameLine": false,
+		"jsxSingleQuote": false,
+		"printWidth": 80,
+		"proseWrap": "always",
+		"quoteProps": "consistent",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "none",
+		"useTabs": true
+	},
+	"devDependencies": {
+		"@cyph/prettier": "*",
+		"@cyph/pretty-quick": "*",
+		"husky": "^7.0.0"
+	},
+	"scripts": {
+		"prepare": "husky install"
+	}
+}
