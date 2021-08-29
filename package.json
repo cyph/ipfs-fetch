@@ -6,7 +6,7 @@
 		"url": "git://github.com/cyph/ipfs-fetch.git"
 	},
 	"author": "Cyph, Inc. <ipfs-fetch@cyph.com> (https://github.com/cyph)",
-	"license": "Cyph-RSL",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/cyph/ipfs-fetch/issues"
 	},
