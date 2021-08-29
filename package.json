@@ -1,6 +1,7 @@
 {
 	"name": "ipfs-fetch",
 	"version": "0.0.1",
+	"main": "index.js",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/cyph/ipfs-fetch.git"
@@ -25,6 +26,14 @@
 		"tabWidth": 4,
 		"trailingComma": "none",
 		"useTabs": true
+	},
+	"dependencies": {
+		"interface-datastore": "^5",
+		"ipfs-core": "^0",
+		"ipfs-repo": "^12",
+		"datastore-level": "^6",
+		"level": "./level-null",
+		"multiformats": "^9"
 	},
 	"devDependencies": {
 		"@cyph/prettier": "*",
