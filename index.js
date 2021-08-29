@@ -21,13 +21,26 @@ const ipfs = IPFS.create({
 	)
 });
 
-const ipfsFetch = async hash => {
-	const iter = (await ipfs).cat(hash);
-	const buffers = [];
-	for await (const buf of iter) {
-		buffers.push(buf);
-	}
-	return Buffer.concat(buffers);
+const ipfsFetch = async (hash, {timeout} = {}) => {
+	const result = (async () => {
+		const iter = (await ipfs).cat(hash);
+		const buffers = [];
+		for await (const buf of iter) {
+			buffers.push(buf);
+		}
+		return Buffer.concat(buffers);
+	})();
+
+	const timeoutPromise =
+		typeof timeout === 'number' && !isNaN(timeout) && timeout > 0 ?
+			new Promise(resolve => {
+				setTimeout(resolve, timeout);
+			}).then(() =>
+				Promise.reject(`Timeout of ${timeout.toString()} exceeded.`)
+			) :
+			undefined;
+
+	return timeoutPromise ? Promise.race([result, timeoutPromise]) : result;
 };
 
 module.exports = ipfsFetch;
