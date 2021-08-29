@@ -1,6 +1,6 @@
 {
 	"name": "ipfs-fetch",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
@@ -32,7 +32,7 @@
 		"ipfs-core": "^0",
 		"ipfs-repo": "^12",
 		"datastore-level": "^6",
-		"level": "./level-null",
+		"level": "https://github.com/buu700/level-null",
 		"multiformats": "^9"
 	},
 	"devDependencies": {
