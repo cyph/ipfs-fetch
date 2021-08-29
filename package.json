@@ -1,14 +1,14 @@
 {
-	"name": "@cyph/starter-project",
-	"version": "0.0.0",
+	"name": "ipfs-fetch",
+	"version": "0.0.1",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/cyph/starter-project.git"
+		"url": "git://github.com/cyph/ipfs-fetch.git"
 	},
-	"author": "Cyph, Inc. <starter-project@cyph.com> (https://github.com/cyph)",
+	"author": "Cyph, Inc. <ipfs-fetch@cyph.com> (https://github.com/cyph)",
 	"license": "Cyph-RSL",
 	"bugs": {
-		"url": "https://github.com/cyph/starter-project/issues"
+		"url": "https://github.com/cyph/ipfs-fetch/issues"
 	},
 	"prettier": {
 		"arrowParens": "avoid",
