@@ -1,6 +1,6 @@
 {
 	"name": "ipfs-fetch",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
@@ -34,7 +34,8 @@
 		"ipfs-repo": "^12",
 		"level": "https://github.com/buu700/level-null",
 		"multiformats": "^9",
-		"parse-duration": "https://github.com/buu700/parse-duration-null"
+		"parse-duration": "https://github.com/buu700/parse-duration-null",
+		"ursa-optional": "https://github.com/buu700/ursa-optional-null"
 	},
 	"devDependencies": {
 		"@cyph/prettier": "*",
