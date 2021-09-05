@@ -28,10 +28,10 @@
 		"useTabs": true
 	},
 	"dependencies": {
+		"datastore-level": "^6",
 		"interface-datastore": "^5",
 		"ipfs-core": "^0",
 		"ipfs-repo": "^12",
-		"datastore-level": "^6",
 		"level": "https://github.com/buu700/level-null",
 		"multiformats": "^9",
 		"parse-duration": "https://github.com/buu700/parse-duration-null"
