@@ -1,6 +1,6 @@
 {
 	"name": "ipfs-fetch",
-	"version": "0.2.1",
+	"version": "1.0.0",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
@@ -28,19 +28,14 @@
 		"useTabs": true
 	},
 	"dependencies": {
-		"datastore-level": "^6",
-		"interface-datastore": "^5",
-		"ipfs-core": "^0",
-		"ipfs-repo": "^12",
-		"level": "https://github.com/buu700/level-null",
-		"multiformats": "^9",
-		"parse-duration": "https://github.com/buu700/parse-duration-null",
-		"ursa-optional": "https://github.com/buu700/ursa-optional-null"
+		"@helia/unixfs": "^1",
+		"helia": "^1",
+		"multiformats": "^12"
 	},
 	"devDependencies": {
 		"@cyph/prettier": "*",
 		"@cyph/pretty-quick": "*",
-		"husky": "^7.0.0"
+		"husky": "^8"
 	},
 	"scripts": {
 		"prepare": "husky install"
