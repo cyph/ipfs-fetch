@@ -7,8 +7,19 @@ const ipfs = Helia.then(async ({createHelia}) =>
 );
 
 const ipfsFetch = async (hash, {timeout} = {}) => {
+	timeout =
+		typeof timeout === 'number' && !isNaN(timeout) && timeout > 0 ?
+			timeout :
+			undefined;
+
 	const result = (async () => {
-		const iter = (await ipfs).cat((await Multiformats).CID.parse(hash));
+		const iter = (await ipfs).cat(
+			(await Multiformats).CID.parse(hash),
+			timeout !== undefined && typeof AbortSignal !== 'undefined' ?
+				{signal: AbortSignal.timeout(timeout)} :
+				undefined
+		);
+
 		const buffers = [];
 		for await (const buf of iter) {
 			buffers.push(buf);
@@ -16,16 +27,17 @@ const ipfsFetch = async (hash, {timeout} = {}) => {
 		return Buffer.concat(buffers);
 	})();
 
-	const timeoutPromise =
-		typeof timeout === 'number' && !isNaN(timeout) && timeout > 0 ?
-			new Promise(resolve => {
-				setTimeout(resolve, timeout);
-			}).then(() =>
-				Promise.reject(`Timeout of ${timeout.toString()} exceeded.`)
-			) :
-			undefined;
+	if (timeout === undefined || typeof AbortSignal !== 'undefined') {
+		return result;
+	}
 
-	return timeoutPromise ? Promise.race([result, timeoutPromise]) : result;
+	const timeoutPromise = new Promise(resolve => {
+		setTimeout(resolve, timeout);
+	}).then(() => {
+		throw new Error(`Timeout of ${timeout.toString()} exceeded.`);
+	});
+
+	return Promise.race([result, timeoutPromise]);
 };
 
 module.exports = ipfsFetch;
